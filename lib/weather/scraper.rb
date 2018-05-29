@@ -22,4 +22,9 @@ class Scraper
   # hilo and uv index = new_content.css('.today_nowcard').css('.today_nowcard-hilo').first.inner_text
   # contains humidity, dew point, pressure, visibility may need to iterate over this and separate and put back together
   # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').first.inner_text
+  # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').first.text
+  # (winds 7 mph)
+  # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').collect do |item| item.text
+  # gives me -  ["WindS 7 mph ", "Humidity73%", "Dew Point56°", "Pressure30.05 in ", "Visibility10.0 mi"]
+  .split(/(?<=\d)(?=[A-Za-z])/)
 end
