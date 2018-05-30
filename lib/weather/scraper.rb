@@ -26,5 +26,7 @@ class Scraper
   # (winds 7 mph)
   # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').collect do |item| item.text
   # gives me -  ["WindS 7 mph ", "Humidity73%", "Dew Point56°", "Pressure30.05 in ", "Visibility10.0 mi"]
-  .split(/(?<=\d)(?=[A-Za-z])/)
+  # .split(/(?<=\d)(?=[A-Za-z])/)
+  # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
+  # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
 end
