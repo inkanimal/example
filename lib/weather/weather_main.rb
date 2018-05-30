@@ -2,6 +2,8 @@ class WeatherMain
 
   attr_accessor :temp, :condition, :feels_temp, :wind, :humidity, :dew_point, :pressure, :visibility
 
+  @@all = []
+
   def intialize
     @temp = temp
     @condition = condition
@@ -21,5 +23,5 @@ class WeatherMain
   def save
     @@all << self
   end
-  
+
 end
