@@ -2,7 +2,7 @@ class Cli
 
   def call
     get_zip
-    weather_conditions
+    weather_list
   end
 
   def get_zip
@@ -13,7 +13,7 @@ class Cli
      input = gets.strip
     end
 
-  def weather_conditions
+  def weather_list
     input = ""
     while input != "exit"
       puts "Please type in the number that corresponds to the weather condition that you would like to view."
@@ -51,6 +51,39 @@ class Cli
   end
 
   def temp
+     #needs to have temp data with index +1 and a return to list
+     #puts "The current temperature is "
+  end
+
+  def condition
+    #needs to have current conditions with index(+1) and a return to list
+    #puts "The weather outside is #{condition}."
+  end
+
+  def feels_temp
+    #needs to have #{feels_temp} with index and a return to weather_list
+    #puts "The current temperature feels like #{feels_temp}."
+  end
+
+  def wind
+    #puts "The wind direction and speed are #{wind}."
 
   end
+
+  def humidity
+    #puts "The current Humidity is #{humidity}."
+  end
+
+  def dew_point
+    #puts "The current Dew Point is #{dew_point}."
+  end
+
+  def pressure
+    #puts "The Pressure is #{pressure}."
+  end
+
+  def visibility
+    #puts "The current Visibility is #{visibility}."
+  end
+  
 end
