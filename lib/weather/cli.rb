@@ -2,6 +2,7 @@ class Cli
 
   def call
     get_zip
+    weather_conditions
   end
 
   def get_zip
@@ -50,6 +51,6 @@ class Cli
   end
 
   def temp
-    
+
   end
 end
