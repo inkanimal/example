@@ -7,7 +7,7 @@ class Scraper
 
 
   def self.scrape_weather
-     web_content = open(https://weather.com/weather/today/l/11231:4:US)
+     web_content = open('https://weather.com/weather/today/l/11231:4:US')
      doc = Nokogiri::HTML(web_content)
      weather_content = doc.css('.today_nowcard')
      weather_content.each do |data|
@@ -25,7 +25,7 @@ class Scraper
     pressure = []
       pressure.push(condition_text[3]).push(condition_num[3]).join(" ")
     visibility = []
-      visibiltiy.push(condition_text[4]).push(condition_num[4]).join(" ")
+      visibility.push(condition_text[4]).push(condition_num[4]).join(" ")
     end
   # new_content.css('.today_nowcard').css('.today_nowcard-temp').first.inner_text
   # new_content.css('.today_nowcard').css('.today_nowcard-phrase').first.inner_html
