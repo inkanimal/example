@@ -41,4 +41,6 @@ class Scraper
   # .split(/(?<=\d)(?=[A-Za-z])/)
   # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
   # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
+  end
+ end 
 end
