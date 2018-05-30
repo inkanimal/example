@@ -15,6 +15,10 @@ class Scraper
        condition = data.css('.today_nowcard-phrase').first.inner_html
        feels_temp = data.css('.today_nowcard-feels').first.inner_text
   end
+    condition_text = new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
+    condition_num  = new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
+      wind = []
+      wind.push(condition_text[0]).push(condition_num[0]).join(" ")
 
   # new_content.css('.today_nowcard').css('.today_nowcard-temp').first.inner_text
   # new_content.css('.today_nowcard').css('.today_nowcard-phrase').first.inner_html
