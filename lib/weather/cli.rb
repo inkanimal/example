@@ -11,7 +11,16 @@ class Cli
      puts "Welcome to your Weather."
      puts "Please enter your zip code to see the weather in your area. Type exit at any point to leave the application."
      input = gets.strip
+     zip = input.to_i  #(00704,99950)
+     if zip.between?(00704,99950) == false
+       puts "That is not a valid zip code. Please try again."
+     end
     end
+
+  def valid_zip?(zip)
+    zip.between?(00704,99950)
+  end
+
 
   def weather_list
     input = ""
@@ -85,5 +94,5 @@ class Cli
   def visibility
     #puts "The current Visibility is #{visibility}."
   end
-  
+
 end
