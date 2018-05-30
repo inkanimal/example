@@ -17,6 +17,7 @@ class Scraper
        feels_temp = data.css('.today_nowcard-feels').first.inner_text
        # condition_text = data.css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
        condition_num  = data.css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
+         condition_num
     wind = []
       wind.push(condition_num[0])
     humidity = []
@@ -42,5 +43,5 @@ class Scraper
   # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
   # new_content.css('.today_nowcard').css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
   end
- end 
+ end
 end
