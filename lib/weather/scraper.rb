@@ -15,18 +15,18 @@ class Scraper
        temp = data.css('.today_nowcard-temp').first.inner_text
        condition = data.css('.today_nowcard-phrase').first.inner_html
        feels_temp = data.css('.today_nowcard-feels').first.inner_text
-       condition_text = data.css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
+       # condition_text = data.css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
        condition_num  = data.css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
     wind = []
-      wind.push(condition_text[0]).push(condition_num[0]).join(" ")
+      wind.push(condition_num[0])
     humidity = []
-      humidity.push(condition_text[1]).push(condition_num[1]).join(" ")
+      humidity.push(condition_num[1])
     dew_point = []
-      dew_point.push(condition_text[2]).push(condition_num[2]).join(" ")
+      dew_point.push(condition_num[2])
     pressure = []
-      pressure.push(condition_text[3]).push(condition_num[3]).join(" ")
+      pressure.push(condition_num[3])
     visibility = []
-      visibility.push(condition_text[4]).push(condition_num[4]).join(" ")
+      visibility.push(condition_num[4])
     end
   # new_content.css('.today_nowcard').css('.today_nowcard-temp').first.inner_text
   # new_content.css('.today_nowcard').css('.today_nowcard-phrase').first.inner_html
