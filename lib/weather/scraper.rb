@@ -8,7 +8,8 @@ class Scraper
 
   def self.scrape_weather
      web_content = open('https://weather.com/weather/today/l/11231:4:US')
-     doc = Nokogiri::HTML(web_content)
+     content = web_content.read
+     doc = Nokogiri::HTML(content)
      weather_content = doc.css('.today_nowcard')
      weather_content.each do |data|
        temp = data.css('.today_nowcard-temp').first.inner_text
