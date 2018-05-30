@@ -47,6 +47,9 @@ class Cli
         visibility
       end
     end
-          
+  end
+
+  def temp
+    
   end
 end
