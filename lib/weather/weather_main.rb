@@ -4,7 +4,7 @@ class WeatherMain
 
   @@all = []
 
-  def intialize
+  def initialize
     @temp = temp
     @condition = condition
     @feels_temp = temp
@@ -24,4 +24,20 @@ class WeatherMain
     @@all << self
   end
 
+  # def initialize(input = "")
+  #   @input = input
+  # end
+  #
+  # def zip_code(input)
+  #   input = gets.strip
+  #   zip = input.to_i
+  # end
+  #
+  # def zip_valid?(zip_code)
+  #   if zip_code.between?(00704,99950) == false
+  #     puts "That is not a valid zip code. Please enter another zip code."
+  #   else
+  #     zip_code
+  #   end
+  # end
 end
