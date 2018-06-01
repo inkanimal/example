@@ -6,6 +6,7 @@ class Cli
   end
 
   def get_zip
+    # needs to get the users zip code and pass that to the scraper. needs to check is zip code is valid.
     input = ""
     while input != "exit"
      puts "Welcome to your Weather."
