@@ -5,7 +5,7 @@ require 'pry'
 
 class Scraper
 
-  @@all = []
+
 
   def self.scrape_weather
     #need to put #{zip_code} into the url
@@ -14,7 +14,7 @@ class Scraper
      doc = Nokogiri::HTML(content)
      weather_content = doc.css('.today_nowcard')
      weather_content.collect do |data|
-       @@all <<
+       WeatherMain.all <<
        temp = data.css('.today_nowcard-temp').first.inner_text
        condition = data.css('.today_nowcard-phrase').first.inner_html
        feels_temp = data.css('.today_nowcard-feels').first.inner_text
@@ -24,7 +24,7 @@ class Scraper
   def self.scrape_weather_two
        # condition_text = data.css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
      condition_num  = data.css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
-       @@ll.push(condition_num)
+       WeatherMain.all.push(condition_num)
      end
   end
 end
