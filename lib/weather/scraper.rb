@@ -5,9 +5,7 @@ require 'pry'
 
 class Scraper
 
-
-
-  def self.scrape_weather
+ def self.scrape_weather
     #need to put #{zip_code} into the url
      web_content = open('https://weather.com/weather/today/l/11231:4:US')
      content = web_content.read
