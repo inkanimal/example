@@ -11,7 +11,11 @@ class Scraper
      content = web_content.read
      doc = Nokogiri::HTML(content)
      weather_content = doc.css('.today_nowcard')
-     weather_content.collect do |data|
+     weather_content.each do |data|
+       # weather = WeatherMain.new
+       # weather.temp = data.css('.today_nowcard-temp').first.inner_text
+       # weather.condition = data.css('.today_nowcard-phrase').first.inner_html
+       # ...
        WeatherMain.all <<
        temp = data.css('.today_nowcard-temp').first.inner_text
        condition = data.css('.today_nowcard-phrase').first.inner_html
@@ -19,10 +23,12 @@ class Scraper
      end
   end
 
-  def self.scrape_weather_two
+  def self.scrape_weather_two(weather_object)
        # condition_text = data.css('.today_nowcard-sidecar').css('tr').css('th').collect do |item| item.text
      condition_num  = data.css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
-       WeatherMain.all.push(condition_num)
+       #weather_object.wind = condition_num[0]
+       # ....
+       # WeatherMain.all.push(condition_num)
      end
   end
 end

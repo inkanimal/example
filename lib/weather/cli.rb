@@ -15,6 +15,7 @@ class Cli
      zip = input.to_i  #(00704,99950)
      if zip.between?(00704,99950) == false
        puts "That is not a valid zip code. Please try again."
+
      end
     end
 
@@ -39,9 +40,9 @@ class Cli
       if input.between?(1,8) == false
         puts "That is an invalid entry. Please choose again."
       case input
-
+# instance
       when "1"
-        temp
+        instance.temp
       when "2"
         condition
       when "3"
