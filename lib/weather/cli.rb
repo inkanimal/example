@@ -15,9 +15,8 @@ class Cli
      zip = input.to_i  #(00704,99950)
      if zip.between?(00704,99950) == false
        puts "That is not a valid zip code. Please try again."
-
      end
-    end
+  end
 
   def valid_zip?(zip)
     zip.between?(00704,99950)
