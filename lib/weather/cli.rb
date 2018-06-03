@@ -41,59 +41,35 @@ class Cli
       case input
 # instance
       when "1"
-        instance.temp
+        puts "The current temperature is #{WeatherMain.all.temp}." instance.temp
       when "2"
-        condition
+        puts "The current weather condition is #{WeatherMain.all.condition}."
       when "3"
-        feels_temp
+        puts "The temperature #{WeatherMain.all.feels_temp}."feels_temp
       when "4"
-        wind
+        puts "The current wind conditions are #{WeatherMain.all.wind}."
       when "5"
-        humidity
+        puts "The humidity is #{WeatherMain.all.humidity}."
       when "6"
-        dew_point
+        puts "The dew point is #{WeatherMain.all.dew_point}."
       when "7"
-        pressure
+        puts "The current pressure is #{WeatherMain.all.pressure}."
       when "8"
-        visibility
+        puts "#{WeatherMain.all.visibility} is the current visibility in your area."
       end
     end
   end
 
-  def temp
-     #needs to have temp data with index +1 and a return to list
-     #puts "The current temperature is "
-  end
-
-  def condition
-    #needs to have current conditions with index(+1) and a return to list
-    #puts "The weather outside is #{condition}."
-  end
-
-  def feels_temp
-    #needs to have #{feels_temp} with index and a return to weather_list
-    #puts "The current temperature feels like #{feels_temp}."
-  end
-
-  def wind
-    #puts "The wind direction and speed are #{wind}."
-
-  end
-
-  def humidity
-    #puts "The current Humidity is #{humidity}."
-  end
-
-  def dew_point
-    #puts "The current Dew Point is #{dew_point}."
-  end
-
-  def pressure
-    #puts "The Pressure is #{pressure}."
-  end
-
-  def visibility
-    #puts "The current Visibility is #{visibility}."
-  end
+  def return
+    input = ""
+    puts "If you would like to return to the weather conditions list, please type return."
+    input = gets.strip
+    if input == "return"
+      weather_list
+    else
+      input == "exit"
+      get_zip
+    end
+  end 
 
 end
