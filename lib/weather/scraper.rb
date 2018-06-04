@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
+# require 'pry'
 
 
 class Scraper
@@ -37,6 +37,7 @@ class Scraper
   #      # WeatherMain.all.push(condition_num)
   #    end
   # end
+end
 end
 
     # wind = []

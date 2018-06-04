@@ -18,11 +18,12 @@ class Cli
      else
        Scraper.scrape_weather
      end
+   end
   end
 
-  def valid_zip?(zip)
-    zip.between?(00704,99950)
-  end
+  # def valid_zip?(zip)
+  #   zip.between?(00704,99950)
+  # end
 
 
   def weather_list
@@ -43,11 +44,11 @@ class Cli
       case input
 # instance
       when "1"
-        puts "The current temperature is #{WeatherMain.all.temp}." instance.temp
+        puts "The current temperature is #{WeatherMain.all.temp}."
       when "2"
         puts "The current weather condition is #{WeatherMain.all.condition}."
       when "3"
-        puts "The temperature #{WeatherMain.all.feels_temp}."feels_temp
+        puts "The temperature #{WeatherMain.all.feels_temp}."
       when "4"
         puts "The current wind conditions are #{WeatherMain.all.wind}."
       when "5"
@@ -73,5 +74,5 @@ class Cli
       get_zip
     end
   end
-
+end
 end
