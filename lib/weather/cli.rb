@@ -13,7 +13,7 @@ class Cli
   end
 
   def get_zip
-    puts "Welcome to your Weather."
+    puts "              | Welcome to Weather |                 "
     # needs to get the users zip code and pass that to the scraper. needs to check is zip code is valid.
     input = ""
     retreived_value_zip = false
@@ -33,7 +33,7 @@ class Cli
   def weather_list(weather_data)
     input = ""
     while input != "9"
-      puts "Please type in the number that corresponds to the weather condition that you would like to view."
+      puts "Please type in the number that corresponds to the weather condition that you would like to view. To exit, please type 9."
       puts "            1. Temperature
             2. Current conditions
             3. Feels like Temperature
@@ -57,7 +57,7 @@ class Cli
       when "3"
         puts "The temperature #{weather_data.feels_temp}."
       when "4"
-        puts "The current wind conditions are #{weather_data.wind.strip}."
+        puts "The current wind direction and speed are #{weather_data.wind.strip}."
       when "5"
         puts "The humidity is #{weather_data.humidity}."
       when "6"

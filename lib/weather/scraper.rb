@@ -3,8 +3,6 @@ require 'open-uri'
 
 require_relative './weather_main.rb'
 
-# require 'pry'
-# https://weather.com/weather/today/l/
 
 class Scraper
 
@@ -15,7 +13,7 @@ class Scraper
      doc = Nokogiri::HTML(content)
      weather_content = doc.css('.today_nowcard')
      weather = WeatherMain.new
-     weather.temp = weather_content.css('.today_nowcard-temp').first.inner_text
+     weather.temp = weather_content.css('.today_nowcard-temp').first.text
      weather.condition = weather_content.css('.today_nowcard-phrase').first.inner_html
      weather.feels_temp = weather_content.css('.today_nowcard-feels').first.inner_text
      condition_num  = weather_content.css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text end
