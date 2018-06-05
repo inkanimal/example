@@ -6,9 +6,9 @@ require_relative './weather_main.rb'
 
 class Scraper
 
- def self.scrape_weather(zip_code)
+ def self.scrape_weather(zip)
     #need to put #{get_zip} into the url
-     web_content = open("https://weather.com/weather/today/l/#{zip_code}:4:US")
+     web_content = open("https://weather.com/weather/today/l/#{zip}:4:US")
      content = web_content.read
      doc = Nokogiri::HTML(content)
      weather_content = doc.css('.today_nowcard')
