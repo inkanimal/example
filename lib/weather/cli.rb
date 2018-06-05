@@ -2,73 +2,74 @@ require_relative './scraper.rb'
 
 class Cli
 
+  # def initialize
+  #  self.start
+  # end
 
-
-  def call
+  def start
     zip = get_zip
-    weather_data = Scraper.scrape_weather
+    weather_data = Scraper.scrape_weather(zip)
     weather_list(weather_data)
   end
 
   def get_zip
+    puts "Welcome to your Weather."
     # needs to get the users zip code and pass that to the scraper. needs to check is zip code is valid.
     input = ""
     retreived_value_zip = false
     while retreived_value_zip == false
-     puts "Welcome to your Weather."
-     puts "Please enter your zip code to see the weather in your area. Type exit at any point to leave the application."
+     puts "Please enter your zip code to see the weather in your area."
      input = gets.strip
      zip = input.to_i  #(00704,99950)
      if zip.between?(00704,99950) == false
        puts "That is not a valid zip code. Please try again."
      else
-       print "entered zip: " + zip.to_s + "\n"
        retreived_value_zip = true
      end
    end
+   zip
   end
 
-
-
-  # def valid_zip?(zip)
-  #   zip.between?(00704,99950)
-  # end
-
-
-  def weather_list
-    print weather_data.temp
+  def weather_list(weather_data)
     input = ""
-    while input != "exit"
+    while input != "9"
       puts "Please type in the number that corresponds to the weather condition that you would like to view."
-      puts "1. Temperature
+      puts "            1. Temperature
             2. Current conditions
             3. Feels like Temperature
             4. Wind
             5. Humidity
             6. Dew Point
             7. Pressure
-            8. Visibility"
+            8. Visibility
+            9. Exit"
+
       input = gets.strip
-      if input.between?(1,8) == false
+      if input.to_i.between?(1,9) == false
         puts "That is an invalid entry. Please choose again."
+      else
       case input
 # instance
       when "1"
-        puts "The current temperature is #{WeatherMain.all.temp}."
+        puts "The current temperature is #{weather_data.temp}."
       when "2"
-        puts "The current weather condition is #{WeatherMain.all.condition}."
+        puts "The current weather condition is #{weather_data.condition}."
       when "3"
-        puts "The temperature #{WeatherMain.all.feels_temp}."
+        puts "The temperature #{weather_data.feels_temp}."
       when "4"
-        puts "The current wind conditions are #{WeatherMain.all.wind}."
+        puts "The current wind conditions are #{weather_data.wind.strip}."
       when "5"
-        puts "The humidity is #{WeatherMain.all.humidity}."
+        puts "The humidity is #{weather_data.humidity}."
       when "6"
-        puts "The dew point is #{WeatherMain.all.dew_point}."
+        puts "The dew point is #{weather_data.dew_point}."
       when "7"
-        puts "The current pressure is #{WeatherMain.all.pressure}."
+        puts "The current pressure is #{weather_data.pressure.strip}."
       when "8"
-        puts "#{WeatherMain.all.visibility} is the current visibility in your area."
+        puts "#{weather_data.visibility} is the current visibility in your area."
+      when "9"
+        puts "Thank you for using Weather. Goodbye."
+      else
+        puts "Not a valid choice."
       end
     end
   end
@@ -90,7 +91,7 @@ class Cli
   end
 end
 
-print "starting test"
+
 mycli = Cli.new
-mycli.call
+mycli.start
 end

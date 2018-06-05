@@ -4,13 +4,13 @@ require 'open-uri'
 require_relative './weather_main.rb'
 
 # require 'pry'
-
+# https://weather.com/weather/today/l/
 
 class Scraper
 
- def self.scrape_weather
+ def self.scrape_weather(zip_code)
     #need to put #{get_zip} into the url
-     web_content = open('https://weather.com/weather/today/l/11231:4:US')
+     web_content = open("https://weather.com/weather/today/l/#{zip_code}:4:US")
      content = web_content.read
      doc = Nokogiri::HTML(content)
      weather_content = doc.css('.today_nowcard')
