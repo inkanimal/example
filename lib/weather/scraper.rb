@@ -1,5 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
+
+require_relative './weather_main.rb'
+
 # require 'pry'
 
 
@@ -11,22 +14,21 @@ class Scraper
      content = web_content.read
      doc = Nokogiri::HTML(content)
      weather_content = doc.css('.today_nowcard')
-     weather_content.each do |data|
-        weather = WeatherMain.new
-        weather.temp = data.css('.today_nowcard-temp').first.inner_text
-        weather.condition = data.css('.today_nowcard-phrase').first.inner_html
-        weather.feels_temp = data.css('.today_nowcard-feels').first.inner_text
-        condition_num  = data.css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text
-        weather.wind = condition_num[0]
-        weather.humidity = condition_num[1]
-        weather.dew_point = condition_num[2]
-        weather.pressure = condition_num[3]
-        weather.visibility = condition_num[4]
+     weather = WeatherMain.new
+     weather.temp = weather_content.css('.today_nowcard-temp').first.inner_text
+     weather.condition = weather_content.css('.today_nowcard-phrase').first.inner_html
+     weather.feels_temp = weather_content.css('.today_nowcard-feels').first.inner_text
+     condition_num  = weather_content.css('.today_nowcard-sidecar').css('tr').css('td').collect do |item| item.text end
+     weather.wind = condition_num[0]
+     weather.humidity = condition_num[1]
+     weather.dew_point = condition_num[2]
+     weather.pressure = condition_num[3]
+     weather.visibility = condition_num[4]
+     weather
        # WeatherMain.all <<
        # temp = data.css('.today_nowcard-temp').first.inner_text
        # condition = data.css('.today_nowcard-phrase').first.inner_html
        # feels_temp = data.css('.today_nowcard-feels').first.inner_text
-     end
   end
 
   # def self.scrape_weather_two(weather_object)
@@ -37,7 +39,6 @@ class Scraper
   #      # WeatherMain.all.push(condition_num)
   #    end
   # end
-end
 end
 
     # wind = []

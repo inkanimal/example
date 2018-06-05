@@ -1,14 +1,20 @@
+require_relative './scraper.rb'
+
 class Cli
 
+
+
   def call
-    get_zip
-    weather_list
+    zip = get_zip
+    weather_data = Scraper.scrape_weather
+    weather_list(weather_data)
   end
 
   def get_zip
     # needs to get the users zip code and pass that to the scraper. needs to check is zip code is valid.
     input = ""
-    while input != "exit"
+    retreived_value_zip = false
+    while retreived_value_zip == false
      puts "Welcome to your Weather."
      puts "Please enter your zip code to see the weather in your area. Type exit at any point to leave the application."
      input = gets.strip
@@ -16,10 +22,13 @@ class Cli
      if zip.between?(00704,99950) == false
        puts "That is not a valid zip code. Please try again."
      else
-       Scraper.scrape_weather
+       print "entered zip: " + zip.to_s + "\n"
+       retreived_value_zip = true
      end
    end
   end
+
+
 
   # def valid_zip?(zip)
   #   zip.between?(00704,99950)
@@ -27,6 +36,7 @@ class Cli
 
 
   def weather_list
+    print weather_data.temp
     input = ""
     while input != "exit"
       puts "Please type in the number that corresponds to the weather condition that you would like to view."
@@ -74,5 +84,13 @@ class Cli
       get_zip
     end
   end
+
+  def testtest
+    print "called test method"
+  end
 end
+
+print "starting test"
+mycli = Cli.new
+mycli.call
 end
