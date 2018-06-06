@@ -3,35 +3,35 @@ class WeatherMain
   attr_accessor :temp, :condition, :feels_temp, :wind, :humidity, :dew_point, :pressure, :visibility
 
   def get_temp
-    return temp
+    temp
   end
 
   def get_condition
-    return condition
+    condition
   end
 
   def get_feels
-    return feels_temp
+    feels_temp
   end
 
   def get_wind
-    return wind
+    wind
   end
 
   def get_hum
-    return humidity
+    humidity
   end
 
   def get_dew
-    return dew_point
+    dew_point
   end
 
   def get_pressure
-    return pressure
+    pressure
   end
 
   def get_vis
-    return visibility
+    visibility
   end
 
   def weather_summary
