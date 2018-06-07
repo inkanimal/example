@@ -1,5 +1,5 @@
 # Weather
-
+<<<<<<<<HEAD
 Description
 
 This is a weather CLI application that will scrape weather data from weather.com
